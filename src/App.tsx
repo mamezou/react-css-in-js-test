@@ -1,20 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {Top} from './Pages/Top'
-import {About} from './Pages/About'
-import {Page404} from './Pages/404'
+import { BrowserRouter, Link } from "react-router-dom";
+
 import "./App.css";
+import { Router } from "./router/Router";
+
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Switch>
-        <Route exact path="/" component={Top} />
-        <Route exact path="/about" component={About} />
-        <Route component={Page404} />
-        </Switch>
-      </Router>
+      <BrowserRouter>
+        <header>
+          <Link to="/">Home</Link>
+          <Link to="/about">about</Link>
+          <Link to="/service">service</Link>
+        </header>
+        <Router />
+      </BrowserRouter>
     </div>
   );
 }
